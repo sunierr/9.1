@@ -1,0 +1,150 @@
+import Footer from '../components/Footer';
+
+function List() {
+    return (
+        <div
+            className="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden"
+            style={{ fontFamily: '"Plus Jakarta Sans", "Noto Sans", sans-serif' }}
+        >
+            <div>
+                <div className="flex items-center bg-white p-4 pb-2 justify-between">
+                    <div className="text-[#181711] flex size-12 shrink-0 items-center" data-icon="Sliders" data-size="24px" data-weight="regular">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M64,105V40a8,8,0,0,0-16,0v65a32,32,0,0,0,0,62v49a8,8,0,0,0,16,0V167a32,32,0,0,0,0-62Zm-8,47a16,16,0,1,1,16-16A16,16,0,0,1,56,152Zm80-95V40a8,8,0,0,0-16,0V57a32,32,0,0,0,0,62v97a8,8,0,0,0,16,0V119a32,32,0,0,0,0-62Zm-8,47a16,16,0,1,1,16-16A16,16,0,0,1,128,104Zm104,64a32.06,32.06,0,0,0-24-31V40a8,8,0,0,0-16,0v97a32,32,0,0,0,0,62v17a8,8,0,0,0,16,0V199A32.06,32.06,0,0,0,232,168Zm-32,16a16,16,0,1,1,16-16A16,16,0,0,1,200,184Z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h2 className="text-[#181711] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Bras</h2>
+                    <div className="flex w-12 items-center justify-end">
+                        <button
+                            className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-transparent text-[#181711] gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0"
+                        >
+                            <div className="text-[#181711]" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div className="px-4 py-3">
+                    <label className="flex flex-col min-w-40 h-12 w-full">
+                        <div className="flex w-full flex-1 items-stretch rounded-xl h-full">
+                            <div
+                                className="text-[#8a8360] flex border-none bg-[#f5f4f0] items-center justify-center pl-4 rounded-l-xl border-r-0"
+                                data-icon="MagnifyingGlass"
+                                data-size="24px"
+                                data-weight="regular"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                                </svg>
+                            </div>
+                            <input
+                                placeholder="Search by size, brand, or style"
+                                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#181711] focus:outline-0 focus:ring-0 border-none bg-[#f5f4f0] focus:border-none h-full placeholder:text-[#8a8360] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                                value=""
+                            />
+                        </div>
+                    </label>
+                </div>
+                <div className="pb-3">
+                    <div className="flex border-b border-[#e6e4db] px-4 gap-8">
+                        <a className="flex flex-col items-center justify-center border-b-[3px] border-b-[#181711] text-[#181711] pb-[13px] pt-4" href="#">
+                            <p className="text-[#181711] text-sm font-bold leading-normal tracking-[0.015em]">Grid</p>
+                        </a>
+                        <a className="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#8a8360] pb-[13px] pt-4" href="#">
+                            <p className="text-[#8a8360] text-sm font-bold leading-normal tracking-[0.015em]">List</p>
+                        </a>
+                    </div>
+                </div>
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+                    <div className="flex flex-col gap-3 pb-3">
+                        <div
+                            className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                            style={{
+                                backgroundImage:
+                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDmtww4P9iaHQXui-vqHLrJI5UwhjVC2jVAlFhkI_DeSEPUXB1bIMy6qE8hH2rUE7Y38dxDNntP_eopCiSV6EmHyoulZ3V9KkIoiCJlBEGdNlKwBhTtRDErmhq9SjDYomEiADuSY1XOhdVbFt_Nacx2PtDB7X3V3rRIUjWXQjCzOn6nGxns1tQhxyRB7fM3d8WWQ369We31ZZdKIxYYrIhpZ3RE9MMklXeTmrbv1PUTOs1OS5OxSvxfPhySqxUnINCu1P4q2PjYaU")'
+                            }}
+                        ></div>
+                        <div>
+                            <p className="text-[#181711] text-base font-medium leading-normal">34B, Natori</p>
+                            <p className="text-[#8a8360] text-sm font-normal leading-normal">$25</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 pb-3">
+                        <div
+                            className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                            style={{
+                                backgroundImage:
+                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPvTeSmzCzCXfw4o3GEdsW9S7eZG53FJ9uMHcH0XhbUMXl0_qM7MVPeFsthkTraU83W-P7ke9vpTzSujH7IAD4osLHSvZ-PGk4J8U-a8saqCLuXRtojtI5x25DUOqpufPZrUaD_HURtdyFWLybeIXJXU9aec_hW4TRJW3jRCklX2xjVoxHbLK7W44OWWFCRURLZiqWISXugMr_kQd1d_iYC8Z78fW_H7K7lJqXnwda1-uVJrm6d2rM6iJ8YU1iwhBCPpKkqmTnDeM")'
+                            }}
+                        ></div>
+                        <div>
+                            <p className="text-[#181711] text-base font-medium leading-normal">36C, Victoria's Secret</p>
+                            <p className="text-[#8a8360] text-sm font-normal leading-normal">$30</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 pb-3">
+                        <div
+                            className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                            style={{
+                                backgroundImage:
+                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmyqLzTRsOlc6Fa8XURRG5WrvzspfWBVzfTkeISxFR_uImoel2eppFyZ9ZQFQbwp01UEilmXnwjjx61f4hlKCBW1N-Dtm-7GVI9mEyJMXzLUsy2_BaQX615lOynjhB59nGI9zYgxstRJOE8fQo5JIQ7nheaUD2nwJpal4tfxJNue5BqCsSHVAnOcflmTkfgkh07hzslkoIRoGx8eOT4UfiLo70jCW0fdezLF5tQgSt-JESi0jM1PVX9Q3-LW7wb4Vwyj0P6V0gHaA")'
+                            }}
+                        ></div>
+                        <div>
+                            <p className="text-[#181711] text-base font-medium leading-normal">32A, Aerie</p>
+                            <p className="text-[#8a8360] text-sm font-normal leading-normal">$20</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 pb-3">
+                        <div
+                            className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                            style={{
+                                backgroundImage:
+                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCx7aZdLoxhC4W3-gQMtcLUntH7eMjDF2Rsr6zjXMMYs90nc6mD39Jm6pHxWfkqoswb-KFODKstOrv-4NhF_wyIORxIIz_tRGCEEYQj6lkz-B1I50jy3GZZlgVPPz_YGGenv2aCQtzexa-Cw9UffMqcNhWKj2zm-18FsNmxb-AjKLm_Ct1hCjegKfmtWb8uZn0I5v93qklzf5fB_UQhlPvUwUCglV6pURzrvsh3Zghb8BnngyAJX6CcL6kVAcw-lvUPOVSaP40_fJM")'
+                            }}
+                        ></div>
+                        <div>
+                            <p className="text-[#181711] text-base font-medium leading-normal">38D, Wacoal</p>
+                            <p className="text-[#8a8360] text-sm font-normal leading-normal">$35</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 pb-3">
+                        <div
+                            className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                            style={{
+                                backgroundImage:
+                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2mVXzdeGjTB6kwM7JBmPPeQ2vUVxa-u75Wi2E2De2Mk8sApYRWtsJuUYErlLs_37P6gO7aZXpsiPjrmkZ6qHsrTGRljpDqhRXY58zGZE0BK73HV4Q8pm0N6rVBglnr5xOUHiH2Pb_dRJnddec0pvSvR72vL_O2TPE0cuTyMdW6IRJAlu0RUdPm-v_NCZ6XeQHX4SZ5J7H9uUBWeftiXHYRepIqN1QbZcq1Gj76HK4UZrT5aHQF18eNWWeYbm_oEE0ON-P9kZzqdk")'
+                            }}
+                        ></div>
+                        <div>
+                            <p className="text-[#181711] text-base font-medium leading-normal">34C, Calvin Klein</p>
+                            <p className="text-[#8a8360] text-sm font-normal leading-normal">$28</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 pb-3">
+                        <div
+                            className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                            style={{
+                                backgroundImage:
+                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWjbtxSwWxh26WFJqqA64aJcVxcY0tO7d8Utexz0rlpJWBQVmIeI21qrp2T3BlphwxfldLS-m9ZQoYWGIwWrlUi8QaFIwSOSQ_wfcVzMejN4TdMr6T2wwHCKKZHNhXfsPRSdxfuFdRp6qrovsy2931cuxZjqMDQOUVXrCOsyzkRR7oT_mbd6O-Q9zPG-xURnkod5KHNED8Lucu0_j11FzosPpt86Y3iqjnE-BPCtQ2bKJbklFubtXpCTa09gpCKAlTMT-oQhGpssc")'
+                            }}
+                        ></div>
+                        <div>
+                            <p className="text-[#181711] text-base font-medium leading-normal">36B, ThirdLove</p>
+                            <p className="text-[#8a8360] text-sm font-normal leading-normal">$32</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div className="h-20 bg-white"></div>
+            </div>
+        </div>
+    )
+}
+
+export default List;

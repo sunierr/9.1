@@ -1,0 +1,12 @@
+@import "tailwindcss";
+.custom-range-track {
+    /* 针对 Webkit 浏览器（Chrome, Safari） */
+    &::-webkit-slider-runnable-track {
+      background-color: rgb(185, 27, 27);
+    }
+    
+    /* 针对 Firefox 浏览器 */
+    &::-moz-range-track {
+      background-color: rgb(180, 30, 30);
+    }
+  }
