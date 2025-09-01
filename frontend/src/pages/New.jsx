@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import ImageUploader from '../components/ImageUploader';
 import BraSizeSelector from '../components/BraSizeSelector';
-import {Select} from 'antd'
 
 function New() {
     const [images, setImages] = useState([]);
@@ -16,10 +15,6 @@ function New() {
         swap: false
     });
 
-    const handleImagesChange = (newImages) => {
-        setImages(newImages);
-    };
-
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData(prevState => ({
@@ -27,6 +22,14 @@ function New() {
             [name]: type === 'checkbox' ? checked : value,
         }));
     };
+
+
+    const handleSize = (val) => {
+        setFormData(prevState => ({
+            ...prevState,
+            size: val,
+        }));
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -52,35 +55,37 @@ function New() {
             return;
         }
 
-        try {
-            const response = await fetch('http://localhost:5000/upload-multiple', {
-                method: 'POST',
-                body: data
-            });
+        console.log(data)
 
-            if (response.ok) {
-                const result = await response.json();
-                alert(`提交成功！共上传 ${result.files.length} 个文件`);
-                // 重置表单
-                setFormData({
-                    description: '',
-                    size: '',
-                    brand: '',
-                    condition: '',
-                    price: '',
-                    swap: false
-                });
-                setPreviewUrls([])
-                if (fileInputRef.current) {
-                    fileInputRef.current.files = [];
-                }
-            } else {
-                throw new Error('提交失败');
-            }
-        } catch (error) {
-            console.error('错误:', error);
-            alert('提交失败，请重试');
-        }
+    //     try {
+    //         const response = await fetch('http://localhost:5000/upload-multiple', {
+    //             method: 'POST',
+    //             body: data
+    //         });
+
+    //         if (response.ok) {
+    //             const result = await response.json();
+    //             alert(`提交成功！共上传 ${result.files.length} 个文件`);
+    //             // 重置表单
+    //             setFormData({
+    //                 description: '',
+    //                 size: '',
+    //                 brand: '',
+    //                 condition: '',
+    //                 price: '',
+    //                 swap: false
+    //             });
+    //             setPreviewUrls([])
+    //             if (fileInputRef.current) {
+    //                 fileInputRef.current.files = [];
+    //             }
+    //         } else {
+    //             throw new Error('提交失败');
+    //         }
+    //     } catch (error) {
+    //         console.error('错误:', error);
+    //         alert('提交失败，请重试');
+    //     }
     };
 
     return (
@@ -104,7 +109,7 @@ function New() {
                         <h2 className="text-[#181711] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">List an Item</h2>
                     </div>
 
-                    <ImageUploader onImagesChange={handleImagesChange} images={images} setImages={setImages} setPreviewUrls={setPreviewUrls} previewUrls={previewUrls} fileInputRef={fileInputRef} />
+                    <ImageUploader images={images} setImages={setImages} setPreviewUrls={setPreviewUrls} previewUrls={previewUrls} fileInputRef={fileInputRef} />
 
                     <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
                         <label className="flex flex-col min-w-40 flex-1">
@@ -118,7 +123,7 @@ function New() {
                         </label>
                     </div>
                     <h3 className="text-[#181711] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Details</h3>
-                    <BraSizeSelector />
+                    <BraSizeSelector onChange={handleSize}/>
                     <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
                         <label className="flex flex-col min-w-40 flex-1">
                             <input
@@ -172,7 +177,9 @@ function New() {
                             <input
                                 placeholder="Price"
                                 className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#181711] focus:outline-0 focus:ring-0 border-none bg-[#f5f4f0] focus:border-none h-14 placeholder:text-[#8a8360] p-4 text-base font-normal leading-normal"
-                                value=""
+                                value={formData.price}
+                                name='price'
+                                onChange={handleInputChange}
                             />
                         </label>
                     </div>
@@ -183,7 +190,7 @@ function New() {
                                 className="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-[#f5f4f0] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-[#f5d63d]"
                             >
                                 <div className="h-full w-[27px] rounded-full bg-white" style={{ "boxShadow": "rgba(0, 0, 0, 0.15) 0px 3px 8px, rgba(0, 0, 0, 0.06) 0px 3px 1px" }}></div>
-                                <input type="checkbox" className="invisible absolute" />
+                                <input name="swap" type="checkbox" className="invisible absolute" onChange={handleInputChange} />
                             </label>
                         </div>
                     </div>
