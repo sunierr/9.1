@@ -8,14 +8,16 @@ const router = express.Router();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const rootDir = path.join(__dirname,"../");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, "uploads")); // save to ./uploads
+    cb(null, path.join(rootDir, "uploads")); // save to ./uploads
   },
   filename: (req, file, cb) => {
-    // Unique filename: timestamp-originalname
-    cb(null, Date.now() + "-" + file.originalname);
+    const decodedOriginalname = decodeURIComponent(escape(file.originalname));
+    // Create a unique filename with the decoded original name
+    cb(null, Date.now() + "-" + decodedOriginalname);
   },
 });
 
@@ -41,7 +43,7 @@ router.get("/", async (req, res) => {
 router.post("/upload-multiple", upload.array("images", 5), (req, res) => {
   try {
     // Get text fields
-    const { username, email, description } = req.body;
+    const { description, size, brand, condition, price, swap } = req.body;
 
     // Get uploaded files
     const files = req.files.map((f) => ({
@@ -51,9 +53,10 @@ router.post("/upload-multiple", upload.array("images", 5), (req, res) => {
       size: f.size,
     }));
 
+    console.log(files)
+
     return res.json({
       message: "Upload successful",
-      user: { username, email, description },
       files,
     });
   } catch (err) {

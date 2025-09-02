@@ -65,7 +65,7 @@ function List() {
                             className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                             style={{
                                 backgroundImage:
-                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDmtww4P9iaHQXui-vqHLrJI5UwhjVC2jVAlFhkI_DeSEPUXB1bIMy6qE8hH2rUE7Y38dxDNntP_eopCiSV6EmHyoulZ3V9KkIoiCJlBEGdNlKwBhTtRDErmhq9SjDYomEiADuSY1XOhdVbFt_Nacx2PtDB7X3V3rRIUjWXQjCzOn6nGxns1tQhxyRB7fM3d8WWQ369We31ZZdKIxYYrIhpZ3RE9MMklXeTmrbv1PUTOs1OS5OxSvxfPhySqxUnINCu1P4q2PjYaU")'
+                                   'url("../public/1.jpg")'
                             }}
                         ></div>
                         <div>
@@ -78,7 +78,7 @@ function List() {
                             className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                             style={{
                                 backgroundImage:
-                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPvTeSmzCzCXfw4o3GEdsW9S7eZG53FJ9uMHcH0XhbUMXl0_qM7MVPeFsthkTraU83W-P7ke9vpTzSujH7IAD4osLHSvZ-PGk4J8U-a8saqCLuXRtojtI5x25DUOqpufPZrUaD_HURtdyFWLybeIXJXU9aec_hW4TRJW3jRCklX2xjVoxHbLK7W44OWWFCRURLZiqWISXugMr_kQd1d_iYC8Z78fW_H7K7lJqXnwda1-uVJrm6d2rM6iJ8YU1iwhBCPpKkqmTnDeM")'
+                                   'url("../public/1.jpg")'
                             }}
                         ></div>
                         <div>
@@ -91,7 +91,7 @@ function List() {
                             className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                             style={{
                                 backgroundImage:
-                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmyqLzTRsOlc6Fa8XURRG5WrvzspfWBVzfTkeISxFR_uImoel2eppFyZ9ZQFQbwp01UEilmXnwjjx61f4hlKCBW1N-Dtm-7GVI9mEyJMXzLUsy2_BaQX615lOynjhB59nGI9zYgxstRJOE8fQo5JIQ7nheaUD2nwJpal4tfxJNue5BqCsSHVAnOcflmTkfgkh07hzslkoIRoGx8eOT4UfiLo70jCW0fdezLF5tQgSt-JESi0jM1PVX9Q3-LW7wb4Vwyj0P6V0gHaA")'
+                                    'url("../public/1.jpg")'
                             }}
                         ></div>
                         <div>
@@ -104,7 +104,7 @@ function List() {
                             className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                             style={{
                                 backgroundImage:
-                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCx7aZdLoxhC4W3-gQMtcLUntH7eMjDF2Rsr6zjXMMYs90nc6mD39Jm6pHxWfkqoswb-KFODKstOrv-4NhF_wyIORxIIz_tRGCEEYQj6lkz-B1I50jy3GZZlgVPPz_YGGenv2aCQtzexa-Cw9UffMqcNhWKj2zm-18FsNmxb-AjKLm_Ct1hCjegKfmtWb8uZn0I5v93qklzf5fB_UQhlPvUwUCglV6pURzrvsh3Zghb8BnngyAJX6CcL6kVAcw-lvUPOVSaP40_fJM")'
+                                   'url("../public/1.jpg")'
                             }}
                         ></div>
                         <div>
@@ -117,7 +117,7 @@ function List() {
                             className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                             style={{
                                 backgroundImage:
-                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2mVXzdeGjTB6kwM7JBmPPeQ2vUVxa-u75Wi2E2De2Mk8sApYRWtsJuUYErlLs_37P6gO7aZXpsiPjrmkZ6qHsrTGRljpDqhRXY58zGZE0BK73HV4Q8pm0N6rVBglnr5xOUHiH2Pb_dRJnddec0pvSvR72vL_O2TPE0cuTyMdW6IRJAlu0RUdPm-v_NCZ6XeQHX4SZ5J7H9uUBWeftiXHYRepIqN1QbZcq1Gj76HK4UZrT5aHQF18eNWWeYbm_oEE0ON-P9kZzqdk")'
+                                    'url("../public/1.jpg")'
                             }}
                         ></div>
                         <div>
@@ -130,7 +130,7 @@ function List() {
                             className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                             style={{
                                 backgroundImage:
-                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWjbtxSwWxh26WFJqqA64aJcVxcY0tO7d8Utexz0rlpJWBQVmIeI21qrp2T3BlphwxfldLS-m9ZQoYWGIwWrlUi8QaFIwSOSQ_wfcVzMejN4TdMr6T2wwHCKKZHNhXfsPRSdxfuFdRp6qrovsy2931cuxZjqMDQOUVXrCOsyzkRR7oT_mbd6O-Q9zPG-xURnkod5KHNED8Lucu0_j11FzosPpt86Y3iqjnE-BPCtQ2bKJbklFubtXpCTa09gpCKAlTMT-oQhGpssc")'
+                                    'url("../public/1.jpg")'
                             }}
                         ></div>
                         <div>

@@ -6,6 +6,7 @@ function New() {
     const [images, setImages] = useState([]);
     const [previewUrls, setPreviewUrls] = useState([]);
     const fileInputRef = useRef(null);
+    const formRef = useRef(null);
     const [formData, setFormData] = useState({
         description: '',
         size: '',
@@ -57,35 +58,33 @@ function New() {
 
         console.log(data)
 
-    //     try {
-    //         const response = await fetch('http://localhost:5000/upload-multiple', {
-    //             method: 'POST',
-    //             body: data
-    //         });
+        try {
+            const response = await fetch('http://localhost:5000/api/items/upload-multiple', {
+                method: 'POST',
+                body: data
+            });
 
-    //         if (response.ok) {
-    //             const result = await response.json();
-    //             alert(`提交成功！共上传 ${result.files.length} 个文件`);
-    //             // 重置表单
-    //             setFormData({
-    //                 description: '',
-    //                 size: '',
-    //                 brand: '',
-    //                 condition: '',
-    //                 price: '',
-    //                 swap: false
-    //             });
-    //             setPreviewUrls([])
-    //             if (fileInputRef.current) {
-    //                 fileInputRef.current.files = [];
-    //             }
-    //         } else {
-    //             throw new Error('提交失败');
-    //         }
-    //     } catch (error) {
-    //         console.error('错误:', error);
-    //         alert('提交失败，请重试');
-    //     }
+            if (response.ok) {
+                const result = await response.json();
+                alert(`提交成功！共上传 ${result.files.length} 个文件`);
+                // 重置表单
+                setFormData({
+                    description: '',
+                    size: '',
+                    brand: '',
+                    condition: '',
+                    price: '',
+                    swap: false
+                });
+                setPreviewUrls([])
+                formRef.current.reset();
+            } else {
+                throw new Error('提交失败');
+            }
+        } catch (error) {
+            console.error('错误:', error);
+            alert('提交失败，请重试');
+        }
     };
 
     return (
@@ -96,7 +95,7 @@ function New() {
                 'fontFamily': '"Plus Jakarta Sans", "Noto Sans", sans-serif'
             }}
         >
-            <form onSubmit={handleSubmit}>
+            <form ref={formRef} onSubmit={handleSubmit}>
                 <div>
                     <div className="flex items-center bg-white p-4 pb-2 justify-between">
                         <div className="text-[#181711] flex size-12 shrink-0 items-center" data-icon="X" data-size="24px" data-weight="regular">
