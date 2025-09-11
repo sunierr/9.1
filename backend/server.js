@@ -1,5 +1,8 @@
 import express from "express";
+import { createServer } from "http";
+import { Server } from "socket.io";
 import mongoose from "mongoose";
+import Message from "./models/Message.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import itemsRouter from "./routes/items.js";
@@ -8,6 +11,34 @@ import { fileURLToPath } from "url";
 
 dotenv.config();
 const app = express();
+
+const server = createServer(app);
+const io = new Server(server, { cors: { origin: "*" } });
+
+io.on("connection", (socket) => {
+  console.log("User connected:", socket.id);
+
+  socket.on("join", (userId) => {
+    onlineUsers.set(userId, socket.id);
+  });
+
+  socket.on("sendMessage", async ({ conversationId, senderId, receiverId, text }) => {
+    const newMessage = new Message({ conversationId, sender: senderId, text });
+    await newMessage.save();
+
+    // Send to receiver if online
+    const receiverSocketId = onlineUsers.get(receiverId);
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit("getMessage", newMessage);
+    }
+  });
+
+  socket.on("disconnect", () => {
+    for (let [userId, sockId] of onlineUsers) {
+      if (sockId === socket.id) onlineUsers.delete(userId);
+    }
+  });
+});
 
 // Middleware
 app.use(cors());
