@@ -1,4 +1,5 @@
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 function List() {
     return (
@@ -60,25 +61,28 @@ function List() {
                     </div>
                 </div>
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-                    <div className="flex flex-col gap-3 pb-3">
-                        <div
-                            className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                            style={{
-                                backgroundImage:
-                                   'url("../public/1.jpg")'
-                            }}
-                        ></div>
-                        <div>
-                            <p className="text-[#181711] text-base font-medium leading-normal">34B, Natori</p>
-                            <p className="text-[#8a8360] text-sm font-normal leading-normal">$25</p>
+                    <Link to="/item">
+                        <div className="flex flex-col gap-3 pb-3">
+                            <div
+                                className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                                style={{
+                                    backgroundImage:
+                                        'url("/1.jpg")'
+                                }}
+                            ></div>
+                            <div>
+                                <p className="text-[#181711] text-base font-medium leading-normal">34B, Natori</p>
+                                <p className="text-[#8a8360] text-sm font-normal leading-normal">$25</p>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
+
                     <div className="flex flex-col gap-3 pb-3">
                         <div
                             className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                             style={{
                                 backgroundImage:
-                                   'url("../public/1.jpg")'
+                                    'url("../public/1.jpg")'
                             }}
                         ></div>
                         <div>
@@ -104,7 +108,7 @@ function List() {
                             className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                             style={{
                                 backgroundImage:
-                                   'url("../public/1.jpg")'
+                                    'url("../public/1.jpg")'
                             }}
                         ></div>
                         <div>

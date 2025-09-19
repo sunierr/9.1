@@ -1,7 +1,7 @@
 // routes/messages.js
 import express from "express";
 import jwt from "jsonwebtoken"
-import { mongoose } from "../utils/mongodb";
+import { mongoose } from "../utils/mongodb.js";
 
 const router = express.Router();
 
@@ -30,9 +30,9 @@ const UserSchema = new mongoose.Schema({
       expiresIn: '1d'
     });
   };
-  
+
   // 注册路由
-  app.post('/register', async (req, res) => {
+  router.post('/register', async (req, res) => {
     try {
       const { username, email, password } = req.body;
   
@@ -74,7 +74,7 @@ const UserSchema = new mongoose.Schema({
   });
   
   // 登录路由
-  app.post('/login', async (req, res) => {
+  router.post('/login', async (req, res) => {
     try {
       const { email, password } = req.body;
   

@@ -6,6 +6,7 @@ import Message from "./models/Message.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import itemsRouter from "./routes/items.js";
+import loginRouter from "./routes/login.js"
 import path from "path";
 import { fileURLToPath } from "url";
 import { connectDB } from "./utils/mongodb.js";
@@ -24,6 +25,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/items", itemsRouter);
+app.use("/api/login", loginRouter);
 
 // Serve frontend build (production)
 const __filename = fileURLToPath(import.meta.url);
