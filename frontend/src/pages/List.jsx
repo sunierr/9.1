@@ -95,7 +95,7 @@ function List() {
                             className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                             style={{
                                 backgroundImage:
-                                    'url("../public/1.jpg")'
+                                    'url("/1.jpg")'
                             }}
                         ></div>
                         <div>
