@@ -1,5 +1,8 @@
 import { useState } from "react"
-import axios from 'axios'
+import api from "../utils/api"
+import Alert from "../components/Alert";
+import { AuthUtils } from "../utils/AuthUtils";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true)
@@ -8,8 +11,12 @@ function Login() {
     email: '',
     password: ''
   });
+  const [alert, setAlert] = useState({ show: false, message: '', type: 'error' });
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const handleIsLogin = () => {
+    //setAlert({ show: false, message: '', type: 'error' });
     setIsLogin((prev) => !prev);
   };
   const handleChange = (e) => {
@@ -18,12 +25,16 @@ function Login() {
       [e.target.name]: e.target.value
     });
   };
+  const handleClose = (e) => {
+    AuthUtils.logout()
+    navigate('/')
+}
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const uri = isLogin ? '/api/login/login' : '/api/login/signup'
+    const uri = isLogin ? '/login/login' : '/login/signup'
     try {
       // 使用 axios 发送 POST 请求
-      const response = await axios.post(uri, formData, {
+      const response = await api.post(uri, formData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -32,13 +43,24 @@ function Login() {
       // 请求成功处理
       console.log('提交成功', response.data);
       // 可以在这里添加成功提示或页面跳转等逻辑
+      setAlert({ show: true, message: response.data.message, type: 'success' });
+
+      AuthUtils.setToken(response.data.token);
+      // 跳回之前访问的路径（默认跳首页）
+      const redirectPath = location.state?.from || "/";
+      navigate(redirectPath, { replace: true });
     } catch (error) {
       // 错误处理
       console.error('提交失败', error.response?.data || error.message);
       // 可以在这里添加错误提示逻辑
+      setAlert({ show: true, message: error.response?.data?.message || 'An unexpected error occurred.', type: 'error' });
+
     }
   };
 
+  const closeAlert = () => {
+    setAlert({ show: false, message: '', type: 'error' });
+  }
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden"
@@ -46,7 +68,19 @@ function Login() {
     >
       <div>
         <div className="flex items-center bg-white p-4 pb-2 justify-between">
-          <h2 className="text-[#181711] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pl-12">Bra Swap</h2>
+          <div className="flex w-12 items-center justify-head">
+            <button
+              onClick={handleClose}
+              className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-transparent text-[#181711] gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0"
+            >
+              <div className="text-[#181711]" data-icon="Question" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M200.34,103.66a12,12,0,0,0-17,0L128,159l-55.34-55.34a12,12,0,0,0-17,17l64,64a12,12,0,0,0,17,0l64-64A12,12,0,0,0,200.34,103.66Z" />
+                </svg>
+              </div>
+            </button>
+          </div>
+          <h2 className="text-[#181711] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Bra Swap</h2>
           <div className="flex w-12 items-center justify-end">
             <button
               className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-transparent text-[#181711] gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0"
@@ -63,6 +97,7 @@ function Login() {
         </div>
         <h2 className="text-[#181711] tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">{isLogin ? 'Welcome Back' : 'Sign up'} </h2>
         <form onSubmit={handleSubmit}>
+          <Alert message={alert.message} type={alert.type} show={alert.show} handleAlert={setAlert} />
           <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
             <label className="flex flex-col min-w-40 flex-1">
               <input

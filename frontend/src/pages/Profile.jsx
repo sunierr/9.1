@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom"
+import { AuthUtils } from "../utils/AuthUtils"
+
 function Profile() {
+    const navigate = useNavigate()
+    const handleClick = (e) => {
+        AuthUtils.logout()
+        navigate('/login')
+    }
     return (
         <div
             className="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden"
@@ -10,6 +18,7 @@ function Profile() {
                     <div className="flex w-12 items-center justify-end">
                         <button
                             className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-transparent text-[#181711] gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0"
+                            onClick={handleClick}
                         >
                             <div className="text-[#181711]" data-icon="Gear" data-size="24px" data-weight="regular">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
