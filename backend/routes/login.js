@@ -32,7 +32,7 @@ const UserSchema = new mongoose.Schema({
   };
 
   // 注册路由
-  router.post('/register', async (req, res) => {
+  router.post('/signup', async (req, res) => {
     try {
       const { username, email, password } = req.body;
   
